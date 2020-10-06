@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Persona} from '../models/persona';
+import {PersonaService} from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-persona-consulta',
@@ -9,12 +10,12 @@ import {Persona} from '../models/persona';
 export class PersonaConsultaComponent implements OnInit {
   personas:Persona[];
   searchText: string;
-  constructor() { }
+  constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
-    this.personas=[
-      
-    ]
+    this.get();
   }
-
+  get(){
+    this.personas = this.personaService.get();
+  }
 }
