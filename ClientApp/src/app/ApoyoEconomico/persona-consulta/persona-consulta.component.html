@@ -2,7 +2,7 @@
         <div class="col-6">
           <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Type to filter">
         </div>
-      </div>
+</div>
       <hr>
       
       <table class="table table-striped" *ngIf='personas && personas.length'>
@@ -37,4 +37,9 @@
           </tr>
         </tbody>
       </table>
+               <div class="form-group">
+                  <label>Total</label>
+                  <input type="number"  name="total" [(ngModel)]="personaTotal"  class="form-control" placeholder="calcular()"/>
+             </div>
+
     

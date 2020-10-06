@@ -9,13 +9,22 @@ import {PersonaService} from 'src/app/services/persona.service';
 })
 export class PersonaConsultaComponent implements OnInit {
   personas:Persona[];
+  personaTotal:number=0;
   searchText: string;
   constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
     this.get();
+    this.calcular();
   }
   get(){
     this.personas = this.personaService.get();
+  }
+  calcular(){
+    var sumador=0;
+        this.personas.forEach(element => {
+            sumador = sumador + element.valorApoyo;
+        });
+    this.personaTotal = sumador;
   }
 }
